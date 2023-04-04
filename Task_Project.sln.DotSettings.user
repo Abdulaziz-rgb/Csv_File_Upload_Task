@@ -1,0 +1,14 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\abdulaziz\Desktop\Task_Project\Task_Project\bin\Debug\net6.0\GridMvc.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5d6af32d_002Dc3c6_002D4e58_002Da3dc_002D654fe1c6716d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="HomeController_Index_ReturnsSuccess" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Index_ReturnsViewName&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.Index_ActionExecutes_ReturnsExactNumberOfEmployees&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Index_ReturnsExactNumberOfEmployees&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.Edit_Test&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Edit_ReturnsNotFoundView_WithWrongId&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>
