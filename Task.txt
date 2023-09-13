@@ -6,11 +6,8 @@
 as needed to accommodate data from the file.
 
 3)Create a simple ASP.Net MVC web site with one page. That page should contain 
-
 a.Browse File control
-
 b.a button to execute the import 
-
 c.a grid/table (described below).
 
 4)When user selects the file and clicks on Import button the program should parse the file, get data and insert
