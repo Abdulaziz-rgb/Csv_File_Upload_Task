@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj": {}
+    "D:\\NET_Projects\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj": {
+    "D:\\NET_Projects\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj",
+        "projectUniqueName": "D:\\NET_Projects\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj",
         "projectName": "Task_Project.Tests",
-        "projectPath": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj",
+        "projectPath": "D:\\NET_Projects\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj",
         "packagesPath": "C:\\Users\\abdulaziz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project.Tests\\obj\\",
+        "outputPath": "D:\\NET_Projects\\Task_Project\\Task_Project.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project\\Task_Project.csproj": {
-                "projectPath": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project\\Task_Project.csproj"
+              "D:\\NET_Projects\\Task_Project\\Task_Project\\Task_Project.csproj": {
+                "projectPath": "D:\\NET_Projects\\Task_Project\\Task_Project\\Task_Project.csproj"
               }
             }
           }
@@ -102,14 +102,14 @@
         }
       }
     },
-    "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project\\Task_Project.csproj": {
+    "D:\\NET_Projects\\Task_Project\\Task_Project\\Task_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project\\Task_Project.csproj",
+        "projectUniqueName": "D:\\NET_Projects\\Task_Project\\Task_Project\\Task_Project.csproj",
         "projectName": "Task_Project",
-        "projectPath": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project\\Task_Project.csproj",
+        "projectPath": "D:\\NET_Projects\\Task_Project\\Task_Project\\Task_Project.csproj",
         "packagesPath": "C:\\Users\\abdulaziz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project\\obj\\",
+        "outputPath": "D:\\NET_Projects\\Task_Project\\Task_Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

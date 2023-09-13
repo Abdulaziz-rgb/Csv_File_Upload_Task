@@ -4,7 +4,6 @@ using DataAccess;
 using Interface;
 using Models;
 
-
 public class EmployeeRepository : IEmployeeRepository
 {
     private readonly AppDbContext _dbContext;

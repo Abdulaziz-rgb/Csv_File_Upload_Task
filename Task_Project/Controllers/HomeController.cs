@@ -29,6 +29,9 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Index([FromForm] IFormFile file, [FromServices] IWebHostEnvironment hostEnvironment)
     {
+        Console.Write(file.FileName);
+        Console.Write(file.Name);
+        Console.Write(file);
         // Handling file create and  upload process...
         
         string path = Path.Combine(hostEnvironment.WebRootPath, "files");

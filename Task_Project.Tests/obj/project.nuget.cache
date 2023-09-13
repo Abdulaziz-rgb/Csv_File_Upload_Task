@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WmgOL2A796QI9msGtiQJ34Nb9eXpPmiy+gCDbGAx8HVkeU9wl+bvDmbmIYVv38aQmtw4P9QzqwybZk5aw+IBvA==",
+  "dgSpecHash": "77WowJ9pX0289XvjMtPndKD9+rnBpn8eDZ4eROnerhfK8mskml5PuV1xiuAVteRUSHSdpGXLg6GkVawwxOtlug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\abdulaziz\\Desktop\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj",
+  "projectFilePath": "D:\\NET_Projects\\Task_Project\\Task_Project.Tests\\Task_Project.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\abdulaziz\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\abdulaziz\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
