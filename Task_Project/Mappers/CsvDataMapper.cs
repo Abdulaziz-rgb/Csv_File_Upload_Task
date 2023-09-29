@@ -7,10 +7,10 @@ using Models;
 public sealed class CsvDataMapper : ClassMap<Employee>
 {
     // Constructor for mapping csv data to model data respectively
-    
+        
     public CsvDataMapper()
     {
-        string format = "dd/MM/yyyy";
+        const string format = "d/M/yyyy";
         Map(m => m.PayrollNumber).Index(0);
         Map(m => m.Forename).Index(1);
         Map(m => m.Surname).Index(2);

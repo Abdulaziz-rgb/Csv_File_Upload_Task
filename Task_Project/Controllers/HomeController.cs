@@ -1,4 +1,6 @@
-﻿namespace Task_Project.Controllers;
+﻿using CsvHelper.Configuration;
+
+namespace Task_Project.Controllers;
 
 using Mappers;
 using ViewModels;
@@ -7,7 +9,6 @@ using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Interface;
-
 
 public class HomeController : Controller
 {
@@ -29,27 +30,25 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Index([FromForm] IFormFile file, [FromServices] IWebHostEnvironment hostEnvironment)
     {
-        Console.Write(file.FileName);
-        Console.Write(file.Name);
-        Console.Write(file);
         // Handling file create and  upload process...
-        
-        string path = Path.Combine(hostEnvironment.WebRootPath, "files");
+        var path = Path.Combine(hostEnvironment.WebRootPath, "files");
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
         }
-        string fileName = Path.GetFileName(file.FileName);
-        string filePath = Path.Combine(path, fileName);
+        var fileName = Path.GetFileName(file.FileName);
+        var filePath = Path.Combine(path, fileName);
         if (System.IO.File.Exists(filePath))
         {
             System.IO.File.Delete(filePath);
         }
-        using (FileStream fileStream = System.IO.File.Create(filePath))
+        using (var fileStream = System.IO.File.Create(filePath))
         {
             file.CopyTo(fileStream);
             fileStream.Flush();
         }
+        
+        if (_employeeRepository.GetEmployeeList() != null) _employeeRepository.DeleteEmployeeList();
         
         InsertEmployeeIntoDatabase(file.FileName);
         
@@ -60,7 +59,7 @@ public class HomeController : Controller
     [HttpGet]
     public ViewResult Edit(string payrollId)
     {
-        Employee employee = _employeeRepository.GetEmployee(payrollId);
+        var employee = _employeeRepository.GetEmployee(payrollId);
         if (employee == null)
         {
             return View("EmployeeNotFound", payrollId);;
@@ -127,9 +126,12 @@ public class HomeController : Controller
         var path = $"{Directory.GetCurrentDirectory()}{@"\wwwroot\files"}" + "\\" + fileName;
         
         // Reading .csv file and parsing it into our model using mapper 
-
+        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+        {
+            HasHeaderRecord = true,
+        };
         using (var reader = new StreamReader(path))
-        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        using (var csv = new CsvReader(reader, config))
         {
             csv.Context.RegisterClassMap<CsvDataMapper>();
             csv.Read();
