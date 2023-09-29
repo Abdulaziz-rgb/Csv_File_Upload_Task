@@ -1,12 +1,7 @@
-﻿using CsvHelper.Configuration;
-using Task_Project.Interfaces;
+﻿namespace Task_Project.Controllers;
 
-namespace Task_Project.Controllers;
-
-using Mappers;
+using Interfaces;
 using ViewModels;
-using System.Globalization;
-using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 

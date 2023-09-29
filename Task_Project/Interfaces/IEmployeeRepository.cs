@@ -1,6 +1,6 @@
-﻿using Task_Project.Models;
+﻿namespace Task_Project.Interfaces;
 
-namespace Task_Project.Interfaces;
+using Models;
 
 public interface IEmployeeRepository
 {

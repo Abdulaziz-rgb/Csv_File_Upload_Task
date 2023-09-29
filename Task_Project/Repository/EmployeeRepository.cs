@@ -1,7 +1,6 @@
-﻿using Task_Project.Interfaces;
+﻿namespace Task_Project.Repository;
 
-namespace Task_Project.Repository;
-
+using Interfaces;
 using DataAccess;
 using Models;
 

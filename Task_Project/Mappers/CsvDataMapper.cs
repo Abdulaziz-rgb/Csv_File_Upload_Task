@@ -3,7 +3,6 @@
 using CsvHelper.Configuration;
 using Models;
 
-
 public sealed class CsvDataMapper : ClassMap<Employee>
 {
     // Constructor for mapping csv data to model data respectively
