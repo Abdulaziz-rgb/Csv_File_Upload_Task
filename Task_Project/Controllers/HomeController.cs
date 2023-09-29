@@ -1,4 +1,5 @@
 ﻿using CsvHelper.Configuration;
+using Task_Project.Interfaces;
 
 namespace Task_Project.Controllers;
 
@@ -8,21 +9,22 @@ using System.Globalization;
 using CsvHelper;
 using Microsoft.AspNetCore.Mvc;
 using Models;
-using Interface;
 
 public class HomeController : Controller
 {
-    private static IEmployeeRepository? _employeeRepository;
+    private IEmployeeRepository? _employeeRepository;
+    
+    private readonly IFileHandler _fileHandler;
 
-    public HomeController(IEmployeeRepository employeeRepository)
+    public HomeController(IEmployeeRepository employeeRepository, IFileHandler fileHandler)
     {
         // injecting dependency into controller
         _employeeRepository = employeeRepository;
+        _fileHandler = fileHandler;
     }
     public ViewResult Index()
     {
         var employees =  _employeeRepository.GetEmployeeList();
-        
         return View("Index", employees);
     }
     
@@ -30,27 +32,12 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Index([FromForm] IFormFile file, [FromServices] IWebHostEnvironment hostEnvironment)
     {
-        // Handling file create and  upload process...
-        var path = Path.Combine(hostEnvironment.WebRootPath, "files");
-        if (!Directory.Exists(path))
+        if (_employeeRepository.GetEmployeeList() != null)
         {
-            Directory.CreateDirectory(path);
+            _employeeRepository.DeleteEmployeeList();
         }
-        var fileName = Path.GetFileName(file.FileName);
-        var filePath = Path.Combine(path, fileName);
-        if (System.IO.File.Exists(filePath))
-        {
-            System.IO.File.Delete(filePath);
-        }
-        using (var fileStream = System.IO.File.Create(filePath))
-        {
-            file.CopyTo(fileStream);
-            fileStream.Flush();
-        }
-        
-        if (_employeeRepository.GetEmployeeList() != null) _employeeRepository.DeleteEmployeeList();
-        
-        InsertEmployeeIntoDatabase(file.FileName);
+        var filePath = _fileHandler.SaveFile(file, hostEnvironment);
+        InsertEmployeeIntoDatabase(filePath);
         
         return RedirectToAction("Index", "Home");
     }
@@ -92,7 +79,7 @@ public class HomeController : Controller
             return View();
         }
         var existingEmployee = _employeeRepository.GetEmployee(employee.PayrollNumber);
-
+        
         existingEmployee.Forename = employee.Forename;
         existingEmployee.Surname = employee.Surname;
         existingEmployee.DateOfBirth = employee.DateOfBirth;
@@ -120,30 +107,10 @@ public class HomeController : Controller
 
         return View("Index", _employeeRepository.GetEmployeeList());
     }
-    
-    private  void InsertEmployeeIntoDatabase(string fileName)
-    {
-        var path = $"{Directory.GetCurrentDirectory()}{@"\wwwroot\files"}" + "\\" + fileName;
         
-        // Reading .csv file and parsing it into our model using mapper 
-        var config = new CsvConfiguration(CultureInfo.InvariantCulture)
-        {
-            HasHeaderRecord = true,
-        };
-        using (var reader = new StreamReader(path))
-        using (var csv = new CsvReader(reader, config))
-        {
-            csv.Context.RegisterClassMap<CsvDataMapper>();
-            csv.Read();
-            csv.ReadHeader();
-            while (csv.Read())
-            {
-                var employee = csv.GetRecord<Employee>();
-                
-                // inserting data into database context
-                
-                _employeeRepository.Add(employee);
-            }
-        }
+    private void InsertEmployeeIntoDatabase(string fileName)
+    {
+        var employees = _fileHandler.ParseEmployeesFromCsv(fileName);
+        _employeeRepository.AddEmployeeList(employees);
     }
 }

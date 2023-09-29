@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Task_Project.DataAccess;
-using Task_Project.Interface;
+using Task_Project.Handlers;
+using Task_Project.Interfaces;
 using Task_Project.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container. options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddSingleton<IFileHandler, FileHandler>();
 builder.Services.AddDbContextPool<AppDbContext>(options =>
 {
     // change Connection String from appsettings.json file

@@ -1,7 +1,8 @@
-﻿namespace Task_Project.Repository;
+﻿using Task_Project.Interfaces;
+
+namespace Task_Project.Repository;
 
 using DataAccess;
-using Interface;
 using Models;
 
 public class EmployeeRepository : IEmployeeRepository
@@ -12,7 +13,16 @@ public class EmployeeRepository : IEmployeeRepository
     {
         _dbContext = dbContext;
     }
-        
+
+    public void AddEmployeeList(List<Employee> employees)
+    {
+        foreach (var employee in employees)
+        {
+            _dbContext.Add(employee);
+            _dbContext.SaveChanges();
+        }
+    }
+
     public Employee GetEmployee(string payrollNumber)
     {
         return _dbContext.Employees.Find(payrollNumber);

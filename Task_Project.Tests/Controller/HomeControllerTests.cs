@@ -1,8 +1,9 @@
-﻿namespace Task_Project.Tests.Controller;
+﻿using Task_Project.Interfaces;
+
+namespace Task_Project.Tests.Controller;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Controllers;
-using Interface;
 using Models;
 
 
@@ -19,7 +20,7 @@ public class HomeControllerTests
         _mockRepo = new Mock<IEmployeeRepository>();
         
         // defining SUT -> System Under Test
-        _controller = new HomeController(_mockRepo.Object);
+        // _controller = new HomeController(_mockRepo.Object);
     }
 
     [Fact]
