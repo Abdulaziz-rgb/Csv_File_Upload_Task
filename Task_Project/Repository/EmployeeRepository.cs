@@ -13,13 +13,10 @@ public class EmployeeRepository : IEmployeeRepository
         _dbContext = dbContext;
     }
 
-    public void AddEmployeeList(List<Employee> employees)
+    public void AddEmployees(List<Employee> employees)
     {
-        foreach (var employee in employees)
-        {
-            _dbContext.Add(employee);
-            _dbContext.SaveChanges();
-        }
+       _dbContext.AddRange(employees);
+       _dbContext.SaveChanges();
     }
 
     public Employee GetEmployee(string payrollNumber)
@@ -27,7 +24,7 @@ public class EmployeeRepository : IEmployeeRepository
         return _dbContext.Employees.Find(payrollNumber);
     }
 
-    public IEnumerable<Employee>? GetEmployeeList()
+    public IEnumerable<Employee>? GetEmployees()
     {
         return _dbContext.Employees;
     }
@@ -45,13 +42,10 @@ public class EmployeeRepository : IEmployeeRepository
         _dbContext.SaveChanges();
     }
 
-    public void DeleteEmployeeList()
+    public void DeleteEmployeeList(List<Employee> employeesToDelete)
     {
-        foreach (var employee in _dbContext.Employees)
-        {
-            _dbContext.Employees.Remove(employee);
-            _dbContext.SaveChanges();
-        }
+        _dbContext.RemoveRange(employeesToDelete);
+        _dbContext.SaveChanges();
     }
         
     public void Update(Employee updatedEmployee)

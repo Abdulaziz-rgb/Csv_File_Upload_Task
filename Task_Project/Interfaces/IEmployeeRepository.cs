@@ -4,18 +4,18 @@ using Models;
 
 public interface IEmployeeRepository
 {
-    IEnumerable<Employee> GetEmployeeList();
+    IEnumerable<Employee> GetEmployees();
 
     Employee Add(Employee employee);
 
-    void AddEmployeeList(List<Employee> employees);
+    void AddEmployees(List<Employee> employees);
 
     Employee GetEmployee(string payrollId);
 
     // added delete method for later use in case needed...
     void Delete(Employee employee);
 
-    void DeleteEmployeeList();
+    void DeleteEmployeeList(List<Employee> employeesToDelete);
 
     void Update(Employee updatedEmployee);
 }

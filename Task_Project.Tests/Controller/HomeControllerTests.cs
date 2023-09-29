@@ -40,7 +40,7 @@ public class HomeControllerTests
         // Arrange
         
         // I found it a bit difficult to understand how Mock is functioning here...
-        _mockRepo.Setup(repo => repo.GetEmployeeList())
+        _mockRepo.Setup(repo => repo.GetEmployees())
             .Returns(new List<Employee> { new(), new() });
 
         // Act
