@@ -12,7 +12,7 @@ using Task_Project.DataAccess;
 namespace Task_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230404071151_InitialMigration")]
+    [Migration("20230929060235_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
