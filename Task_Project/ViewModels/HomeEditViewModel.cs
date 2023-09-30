@@ -14,8 +14,8 @@ public class HomeEditViewModel
     public string Surname { get; set; }
     
     [Display(Name = "Date of birth")]
-    //[DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? DateOfBirth { get; set; }
     
     public int Telephone { get; set; }
@@ -32,7 +32,7 @@ public class HomeEditViewModel
     public string Email { get; set; }
     
     [Display(Name = "Start date")]
-    //[DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     public DateTime? StartDate { get; set; }
 }

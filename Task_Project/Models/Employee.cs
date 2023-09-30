@@ -17,7 +17,7 @@ public class Employee
     public string Surname { get; set; }
     
     [Display(Name = "Date of birth")]
-    [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     [Column(TypeName = "date")]
     public DateTime DateOfBirth { get; set; }
     
@@ -35,7 +35,7 @@ public class Employee
     public string Email { get; set; }
     
     [Display(Name = "Start date")]
-    [DisplayFormat(DataFormatString = "{0:dd'/'MM'/'yyyy}", ApplyFormatInEditMode = true)]
+    [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
     [Column(TypeName = "date")]
     public DateTime StartDate { get; set; }
 }
