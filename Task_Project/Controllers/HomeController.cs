@@ -43,7 +43,7 @@ public class HomeController : Controller
         var employee = _employeeRepository.GetEmployee(payrollId);
         if (employee == null)
         {
-            return View("EmployeeNotFound", payrollId);;
+            return View("EmployeeNotFound", payrollId);
         }
         var editViewModel = EmployeeMapper.MapEmployeeToViewModel(employee);
         

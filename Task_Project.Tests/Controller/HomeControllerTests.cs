@@ -1,71 +1,99 @@
-﻿using Task_Project.Interfaces;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using FluentAssertions;
+using Task_Project.ViewModels;
 
 namespace Task_Project.Tests.Controller;
+
+using NUnit.Framework;
+using Assert = Assert;
+using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Controllers;
 using Models;
 
-
+[TestFixture]
 public class HomeControllerTests
 {
     private readonly HomeController _controller;
+    private readonly Mock<IEmployeeRepository> _mockRepository;
+    private readonly Mock<IFileHandler> _mockFileHandler;
     
-    private readonly Mock<IEmployeeRepository> _mockRepo;
-    
-
     public HomeControllerTests()
     {
         // injecting dependencies 
-        _mockRepo = new Mock<IEmployeeRepository>();
+        _mockRepository = new Mock<IEmployeeRepository>();
+        _mockFileHandler = new Mock<IFileHandler>();
         
-        // defining SUT -> System Under Test
-        // _controller = new HomeController(_mockRepo.Object);
+        // Initializing SUT -> System Under Test
+         _controller = new HomeController(_mockRepository.Object, _mockFileHandler.Object);
     }
 
-    [Fact]
-    public void HomeController_Index_ReturnsViewName()
+    [Test]
+    public void HomeController_Index_ReturnsView()
     {
         // Act
         var result = _controller.Index();
         
         // Assert
-         Assert.IsType<ViewResult>(result);
-         Assert.Equal("Index", result.ViewName);
+        result.Should().BeOfType<ViewResult>();
+        result.ViewName.Should().Be("Index");
     }
     
-    [Fact]
+    [Test]
     public void HomeController_Index_ReturnsExactNumberOfEmployees()
     {     
         // Arrange
-        
-        // I found it a bit difficult to understand how Mock is functioning here...
-        _mockRepo.Setup(repo => repo.GetEmployees())
+        _mockRepository.Setup(repo => repo.GetEmployees())
             .Returns(new List<Employee> { new(), new() });
 
         // Act
         var result = _controller.Index();
 
         // Assert
-         Assert.IsType<ViewResult>(result);
+        result.Should().BeOfType<ViewResult>();
+        result.Model.Should().BeOfType<List<Employee>>();
     }
 
-    [Fact]
-    public void HomeController_Edit_ReturnsNotFoundView_WithWrongId()
+    [Test]
+    public void HomeController_Edit_ReturnsViewWithEmployee()
     {
         // Arrange
-        var payrollId = "BACJ53";
+        var expectedEmployee = new Employee()
+        {
+            PayrollNumber = "COOP08",
+            Forename = "John",
+            Surname = "William",
+            DateOfBirth = new DateTime(1955, 01, 26),
+            Telephone = 12345678,
+            Mobile = 987654231,
+            Address = "12 Foreman road",
+            City = "London",
+            Postcode = "GU12 6JW",
+            Email = "nomadic20@hotmail.co.uk",
+            StartDate = new DateTime(2013, 04, 18)
+        };
+        _mockRepository.Setup(repo => repo.GetEmployee(It.IsAny<string>())).Returns(expectedEmployee);
+        
+        // Act
+        var result = _controller.Edit("COOP08");
+        
+        // Assert
+        result.Should().BeOfType<ViewResult>();
+        result.Model.Should().BeOfType<HomeEditViewModel>();
+    }
+
+    [Test]
+    [TestCase("BACJ53")]
+    public void HomeController_Edit_ReturnsNotFoundView_WithWrongId(string payrollId)
+    {
+        // Arrange
         
         // Act 
         var result = _controller.Edit(payrollId);
 
         // Assert
-        Assert.IsType<ViewResult>(result);
-        Assert.Equal("EmployeeNotFound", result.ViewName);
-        Assert.Equal(payrollId, result.Model);
+        result.Should().BeOfType<ViewResult>();
+        result.ViewName.Should().Be("EmployeeNotFound");
     }
-    
-    // Unit Test is not completed at all. I have problems in writing Unit Test for post and edit 
-    // actions. 
-    // Hope you understand my situation :)
 }

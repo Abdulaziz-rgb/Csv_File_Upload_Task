@@ -11,4 +11,12 @@
     &lt;TestId&gt;xUnit::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Edit_ReturnsNotFoundView_WithWrongId&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fdca1e18_002D2623_002D4873_002Daf8e_002Ded992b2a5bfa/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="HomeController_Index_ReturnsSuccess" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Edit_ReturnsNotFoundView_WithWrongId&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Edit_ReturnsViewWithEmployee&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Index_ReturnsView&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::3CA50594-DB00-4CA8-9CF5-D48170CACFB0::net6.0::Task_Project.Tests.Controller.HomeControllerTests.HomeController_Index_ReturnsExactNumberOfEmployees&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>
