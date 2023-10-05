@@ -1,16 +1,13 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
-using FluentAssertions;
-using Task_Project.ViewModels;
-
-namespace Task_Project.Tests.Controller;
+﻿namespace Task_Project.Tests.Controller;
 
 using NUnit.Framework;
-using Assert = Assert;
 using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using Controllers;
 using Models;
+using FluentAssertions;
+using ViewModels;
 
 [TestFixture]
 public class HomeControllerTests
@@ -87,8 +84,6 @@ public class HomeControllerTests
     [TestCase("BACJ53")]
     public void HomeController_Edit_ReturnsNotFoundView_WithWrongId(string payrollId)
     {
-        // Arrange
-        
         // Act 
         var result = _controller.Edit(payrollId);
 

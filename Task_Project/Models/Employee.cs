@@ -3,7 +3,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-// Defining data model used as a view data in the project 
 public class Employee
 {
     [Key]
